@@ -4,6 +4,7 @@
 
 ### From this youtube video - https://www.youtube.com/watch?v=oDGQrOlmC1s&t=266s&ab_channel=AllAboutAI
 ### Github: https://github.com/vikhyat/moondream.git
+#### Did not find it too useful
 
 ## Visual Language Models in Remote Sensing (Useful)
 
