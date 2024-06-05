@@ -4,7 +4,7 @@
 ## Table of Contents
 
 - **[Project Description](#project-description)**
-- **[Literature Review](#literature-review)**
+- **[Literature Reading](#literature-reading)**
     - [Satellite Image Deep Learning](#satellite-image-deep-learning--github)
     - [Visual Language Models in Remote Sensing](#visual-language-models-in-remote-sensing--github)
         - [Complications of VLMs in RS](#complications-with-vlms-in-rs)
@@ -15,7 +15,7 @@
 - **Overview**
 - **License**
 
-## Literature Review 
+## Literature Reading
 
 ### Satellite Image Deep learning | [GitHub](https://github.com/satellite-image-deep-learning)
 The satellite-image-deep-learning organisation is a good way to start as it provides resources on deep learning applied to satellite and aerial imagery. They provide many useful repositories such as:
