@@ -1,49 +1,41 @@
 # simple code of what the pipeline could look like
 
 import tensorflow as tf
-from tensorflow.keras import layers
+import tensorflow_hub as hub
 
-# Define the model architecture
-class VisualLanguageModel(tf.keras.Model):
-    def __init__(self):
-        super(VisualLanguageModel, self).__init__()
-        # Define layers for image processing
-        self.cnn = ...
-        # Define layers for text processing
-        self.rnn = ...
-        # Combine visual and textual features
-        self.concat = layers.Concatenate()
-        # Final output layer
-        self.output_layer = layers.Dense(...)
+# Load pre-trained image feature extractor
+image_feature_extractor = hub.KerasLayer("https://tfhub.dev/google/imagenet/resnet_v2_50/feature_vector/5", trainable=True)  # Set trainable to True for transfer learning
 
-    def call(self, image, text):
-        # Process image
-        image_features = self.cnn(image)
-        # Process text
-        text_features = self.rnn(text)
-        # Combine features
-        combined_features = self.concat([image_features, text_features])
-        # Generate output
-        output = self.output_layer(combined_features)
-        return output
+# Load pre-trained text feature extractor
+text_feature_extractor = hub.KerasLayer("https://tfhub.dev/google/universal-sentence-encoder/4", trainable=False)
 
-# Create an instance of the model
-model = VisualLanguageModel()
+# Define your classification model
+inputs_text = tf.keras.Input(shape=[], dtype=tf.string)
+inputs_image = tf.keras.Input(shape=(224, 224, 3))
+
+text_embeddings = text_feature_extractor(inputs_text)
+image_embeddings = image_feature_extractor(inputs_image)
+
+# Combine text and image embeddings
+combined = tf.keras.layers.concatenate([text_embeddings, image_embeddings])
+outputs = tf.keras.layers.Dense(num_classes, activation='softmax')(combined)
+
+model = tf.keras.Model(inputs=[inputs_text, inputs_image], outputs=outputs)
 
 # Compile the model
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Train the model
-model.fit([images, texts], labels, batch_size=32, epochs=10)
+model.fit([texts, images], labels, batch_size=32, epochs=10)
 
 # Evaluate the model
-loss, accuracy = model.evaluate([test_images, test_texts], test_labels)
+loss, accuracy = model.evaluate([test_texts, test_images], test_labels)
 
 # Save the model
-model.save('visual_language_model.h5')
+model.save('visual_language_model_with_transfer_learning.h5')
 
 # Load the model
-loaded_model = tf.keras.models.load_model('visual_language_model.h5')
+loaded_model = tf.keras.models.load_model('visual_language_model_with_transfer_learning.h5')
 
 # Use the model to generate answers
-answers = loaded_model.predict([new_images, new_texts])
+answers = loaded_model.predict([new_texts, new_images])
