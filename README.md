@@ -29,6 +29,7 @@ Due to these complications, I decide to propose another project that is less gpu
 The new project involves using Grounded Language-Image Pre-training (GLIP) or Grounding Dino as well as a dataset of many satellite imaging-related labels (forest, water, urban, village, etc) to finetune to combine with Segment Anything Model. This is known as zero-shot object segmentation.
 
 ![alt text](images/image1.png)
+
 Figure 1: Zero shot object segmentation diagram (Grounding Dino + SAM)
 
 The endgoal will be to put in a text prompt and a satellite image input to segment it and show it in the image. For example, it highlights all the forest in image. From there we can calculate the area of the forest compared to the area in image. Another example is the number of buildings in the satellite image.
@@ -49,10 +50,13 @@ The endgoal will be to put in a text prompt and a satellite image input to segme
 ### Screenshots:
 
 ![alt text](images/image2.png)
+
 Figure 2: Segment-geospatial using SAM. Segment of trees youtube tutorial guide from Open Geospatial Solutions. Attempt to see the accuracy when the image is on a higher altitude.
 
 ![alt text](images/image3.png)
+
 Figure 3: GLIP + SAM example code with text prompt of player, basketball and spectator. We can attempt to do this with text prompts like forest, water or villages on a satellite image.
 
 ![alt text](images/image4.png)
+
 Figure 4: Similar end-goal though we will improve using our custom dataset of different labels to further finetune the model for better accuracy for remote sensing. Also, can go further by calculating the area of the segments and the number of segments for further analysis.
