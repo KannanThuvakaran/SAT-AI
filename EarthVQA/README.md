@@ -1,4 +1,4 @@
-<h2 align="center">EarthVQA: Towards Queryable Earth via Relational Reasoning-Based Remote Sensing Visual Question Answering</h2>
+<h2 align="center">EarthVQA</h2>
 
 <h5 align="right">by <a href="https://junjue-wang.github.io/homepage/">Junjue Wang</a>, <a href="http://zhuozheng.top/">Zhuo Zheng</a>, Zihang Chen, Ailong Ma, and <a href="http://rsidea.whu.edu.cn/">Yanfei Zhong</a></h5>
 
@@ -92,7 +92,7 @@ If you use EarthVQA in your research, please cite the following papers.
 ```
 
 
-## Dataset and Contest
+## Dataset
 The EarthVQA dataset is released at [<b>Google Drive</b>](http://um7780bis3qkjojc.mikecrm.com/hsnbBLR)
 and [<b>Baidu Drive</b>](http://um7780bis3qkjojc.mikecrm.com/PnyrDF3)
 
