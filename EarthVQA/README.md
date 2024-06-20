@@ -8,28 +8,16 @@
 [[`Leaderboard-SEG`](https://www.codabench.org/competitions/2921)],
 [[`Leaderboard-VQA`](https://www.codabench.org/competitions/2922)]
 
-<div align="center">
-  <img src="https://github.com/Junjue-Wang/resources/blob/main/EarthVQA/Dataset-vis.png?raw=true">
-</div>
 
-## News
-- 2024/05/12, Code and Pre-trained weights have been updated.
-
-- 2024/05/11, EarthVQA dataset has been released.
-
-
-
+<h5 align="right">edited by <a href="https://github.com/KannanThuvakaran">Kannan Thuvakaran</a>
 
 #### Requirements:
-- pytorch >= 1.1.0
-- python >=3.6
 
-
-### Install Ever + Segmentation Models PyTorch
-```bash
-pip install ever-beta
-pip install git+https://github.com/qubvel/segmentation_models.pytorch
+ ```sh
+    conda env create -f environment.yml
+    conda activate EarthVQA
 ```
+
 ### Data preparation
 - Download EarthVQA dataset and pre-trained weights
 - Construct the data as follows:
@@ -50,27 +38,36 @@ log
 ├── sfpnr50.pth
 ├── soba.pth
 ```
-Note that the images are the same as the LoveDA dataset, so the urban and rural areas can be divided on your own.
+
 ### Test
 
 ```bash
 # 1. generate semantic masks use the pre-trained SFPN weight
-sh ./scripts/generate_segfeats.sh
+
+python ./predict_seg.py --config_path='sfpnr50' --ckpt_path='./log/sfpnr50.pth' --save_dir='./log/sfpnr50/my_test_features'
+
 # 2. generate answers use the pre-trained SOBA weight
-sh ./scripts/predict_soba.sh
+
+python ./predict_soba.py --config_path='soba' --ckpt_path='./log/soba.pth' --pred_save_path='./log/soba/test_2.json'
 ```
+
 ### Train
 ```bash
 # 1 train a segmentation model
-sh ./scripts/train_sfpnr50.sh
+
+python -m torch.distributed.launch --nproc_per_node=1 --master_port=$RANDOM train_lovedav2_seg.py --config_path='sfpnr50' --model_dir='./log/sfpnr50'
+
 # 2 generate segmentation features and pse-masks
-sh ./scripts/generate_segfeats.sh
+
+python ./predict_seg.py --config_path='sfpnr50' --ckpt_path='./log/sfpnr50.pth' --save_dir='./log/sfpnr50/my_test_features'
+
 # 3 train SOBA
-sh ./scripts/train_soba.sh
+
+python -m torch.distributed.launch --nproc_per_node=1 --master_port=$RANDOM train_earthvqa.py --config_path='soba' --model_dir='./log/soba' learning_rate.params.max_iters 40000 train.num_iters 40000
 ```
 
 ## Citation
-If you use EarthVQA in your research, please cite our following papers.
+If you use EarthVQA in your research, please cite the following papers.
 ```text
     @article{wang2024earthvqa, 
         title={EarthVQA: Towards Queryable Earth via Relational Reasoning-Based Remote Sensing Visual Question Answering},
@@ -99,20 +96,18 @@ If you use EarthVQA in your research, please cite our following papers.
 The EarthVQA dataset is released at [<b>Google Drive</b>](http://um7780bis3qkjojc.mikecrm.com/hsnbBLR)
 and [<b>Baidu Drive</b>](http://um7780bis3qkjojc.mikecrm.com/PnyrDF3)
 
-
-
-You can develop your models on Train and Validation sets.
-
-Semantic Category labels: background – 1, building – 2, road – 3,
-                 water – 4, barren – 5,forest – 6, agriculture – 7, playground - 8. And the no-data regions were assigned 0
-                 which should be ignored. The provided data loader will help you construct your pipeline.  
+**Semantic Category labels**:
+- 1: background 
+- 2: building 
+- 3: road 
+- 4: water 
+- 5: barren 
+- 6: forest 
+- 7: agriculture
+- 8: playground
+- 0: no-data regions (which should be ignored) 
                  
 
-Submit your test results on [<b>EarthVQA Semantic Segmentation Challenge</b>](https://www.codabench.org/competitions/2921), 
-[<b>EarthVQA Visual Question Answering Challenge</b>](https://www.codabench.org/competitions/2922).
-You will get your Test scores smoothly.
-
-Feel free to design your own models, and we are looking forward to your exciting results!
 
 
 ## License
