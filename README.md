@@ -1,28 +1,17 @@
-# GISTDA Internship
+<h2 align="center">SAT-AI: Satellite Image Analysis and Query Response</h2>
 
-*Internship project from GISTDA, by Kannan Thuvakaran. Date: 04/06/2024 - Present*
+<h5 align="right">by <a href="https://github.com/KannanThuvakaran">Kannan Thuvakaran</a>
 
 
 ## Table of Contents
 
 - **[Project Description](#project-description)**
-    - **[Original Project](#original-project)**
     - **[Proposed Project](#proposed-project)**
 - **[Literature Reading](#literature-reading)**
     - **[Resources](#resources)**
     - **[Screenshots](#screenshots)**
 
-## Project Description
-
-### Original Project:
-
-The original project is to create a Visual Language Model (VLM) that is able to take in a question and a satellite image an input and be able to answer the question. The endgoal would look similar to SatGPT. However, there are a few issues that makes this project impossible. 
-
-- Good VLMs are produceds with a large dataset of image-text pairs. However in Remote Sensing, there is not enough image-text pairs to create a good dataset a good to make the VLM work for satellite images.
-
--  With only access to google colab free or an rtx 3060 laptop gpu,finetuning and transfer learning a good open-sourced pretrained VLM such as COGVLM requires a hardware minimum of 4 A100 or 8 RTX 3090s.
-
-Due to these complications, I decide to propose another project that is less gpu intensive and is more realistic given the short timeframe of the internship. 
+## Project Description 
 
 ### Proposed Project:
 
