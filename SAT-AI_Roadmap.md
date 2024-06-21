@@ -2,128 +2,89 @@
 # Project Roadmap for SAT-AI Development
 
 ```mermaid
-graph LR
-    A[Initial Setup] --> B[Data Preprocessing]
-    B --> C[Model Fine-Tuning]
-    C --> D[Model Evaluation]
-    D --> E[Basic Interface Development]
-    E --> F
-    F[Advanced Fine-Tuning and Model Improvement]
-    F --> G[Scalability and Performance]
-    G --> H[Advanced Interface Features]
-    H --> I[Testing and Deployment]
-    I --> J[Continuous Improvement and Maintenance]
+
+
+%%{ init : {"theme" : "neutral", "flowchart" : { "curve" : "basis" }}}%%
+
+flowchart LR
 
     subgraph Short-Term Goals: 0-12 months
-        A
-        B
-        C
-        D
-        E
+        A[Dataset Acquisition and Preparation] --> B[Model Selection and Exploration]
+        B --> C[Model Fine-Tuning]
+        C --> D[Interface Development]
+       
     end
 
     subgraph Long-Term Goals: 1-3 years
-        F
-        G
-        H
-        I
-        J
+        F[Further Fine-Tuning and Model Improvement] --> G[Scalability]
+        G --> H[Perfomance]
+        H --> I[Advanced Interface Features Details]
+        
+    end
+    D --> J[Testing and Deployment]
+    I --> J
+
+
+    %% Dataset Acquisition and Preparation Details
+    subgraph A[Dataset Acquisition and Preparation]
+        A1[Acquire Remote Sensing Datasets] --> A2[Preprocess Datasets]
     end
 
-
-%% Initial Setup Details
-    subgraph A[Initial Setup]
-    
-        A1[Install Libraries] --> A2[Download Models]
-        A2 --> A3[Configure Environment]
-        A3 --> A4[Acquire Initial Datasets]
-    end
-
-    %% Data Preprocessing Details
-    subgraph B[Data Preprocessing]
-    
-        B1[Clean Data]
-        B1 --> B2[Normalize Data]
-        B2 --> B3[Augment Data]
-        B3 --> B4[Split Data into Train/Validation Sets]
+    %% Model Selection and Exploration Details
+    subgraph B[Model Selection and Exploration]
+        B1[Evaluate Zero Shot Segmentation Models] --> B2[Research AI Architectures]
     end
 
     %% Model Fine-Tuning Details
     subgraph C[Model Fine-Tuning]
-    
-        C1[Select Base Model]
-        C1 --> C2[Load Preprocessed Data]
-        C2 --> C3[Train Model]
-        C3 --> C4[Optimize Hyperparameters]
+        C1[Select Base Model] --> C2[Load and Preprocess Data]
+        C2 --> C3[Train and Optimize Model]
     end
 
-    %% Model Evaluation Details
-    subgraph D[Model Evaluation]
-    
-        D1[Run Validation Set]
-        D1 --> D2[Calculate Metrics]
-        D2 --> D3[Analyze Results]
-        D3 --> D4[Fine-Tune Model if Necessary]
+    %% Interface Development Details
+    subgraph D[Interface Development]
+        D1[Design User-Friendly Interface] --> D2[Develop Frontend and Backend]
+        D2 --> D3[Integrate Model]
+        D3 --> D4[Test Interface]
     end
 
-    %% Basic Interface Development Details
-    subgraph E[Basic Interface Development]
-    
-        E1[Design Basic UI]
-        E1 --> E2[Develop Frontend]
-        E2 --> E3[Develop Backend]
-        E3 --> E4[Integrate Model with Interface]
-        E4 --> E5[Test Interface]
-    end
 
     %% Advanced Fine-Tuning and Model Improvement Details
-    subgraph F[Advanced Fine-Tuning and Model Improvement]
-    
-        F1[Gather More Data]
-        F1 --> F2[Implement Advanced Techniques]
+    subgraph F[Further Fine-Tuning and Model Improvement Details]
+        direction TB
+        F1[Gather More Data] --> F2[Implement Advanced Techniques]
         F2 --> F3[Combine Models]
         F3 --> F4[Continuous Training]
         F4 --> F5[Monitor Model Performance]
     end
 
-    %% Scalability and Performance Details
-    subgraph G[Scalability and Performance]
-    
-        G1[Acquire More GPUs]
-        G1 --> G2[Optimize Model for Speed]
-        G2 --> G3[Implement Efficient Data Pipelines]
-        G3 --> G4[Test on Larger Datasets]
+    %% Scalability Details
+    subgraph G[Scalability]
+        direction TB
+        G1[Acquire More GPUs] --> G2[Optimize Model for Speed]
+    end
+
+    %% Performance Details
+    subgraph H[Performance Details]
+        direction TB
+        H1[Implement Efficient Data Pipelines] --> H2[Test on Larger Datasets]
     end
 
     %% Advanced Interface Features Details
-    subgraph H[Advanced Interface Features]
-    
-        H1[Implement User Authentication]
-        H1 --> H2[Add Analytical Tools]
-        H2 --> H3[Develop Feedback System]
-        H3 --> H4[Enhance User Experience]
+    subgraph I[Advanced Interface Features Details]
+        direction TB
+        I1[Implement User Authentication] --> I2[Add Analytical Tools]
+        I2 --> I3[Develop Feedback System]
+        I3 --> I4[Enhance User Experience]
     end
 
     %% Testing and Deployment Details
-    subgraph I[Testing and Deployment]
-    
-        I1[Conduct Beta Testing]
-        I1 --> I2[Gather User Feedback]
-        I2 --> I3[Fix Bugs]
-        I3 --> I4[Perform Final Testing]
-        I4 --> I5[Deploy on Cloud Platform]
+    subgraph J[Testing and Deployment of SAT-AI]
+        J1[Conduct Beta Testing] --> J2[Gather User Feedback]
+        J2 --> J3[Fix Bugs]
+        J3 --> J4[Perform Final Testing]
+        J4 --> J5[Deploy on Cloud Platform]
     end
-
-    %% Continuous Improvement and Maintenance Details
-    subgraph J[Continuous Improvement and Maintenance]
-    
-        J1[Monitor System Performance]
-        J1 --> J2[Update Model Regularly]
-        J2 --> J3[Provide User Support]
-        J3 --> J4[Incorporate User Feedback]
-        J4 --> J5[Document Updates]
-    end
-
 
 ```
 
@@ -236,5 +197,3 @@ graph LR
 - Provide user support and address any issues promptly.
 - Incorporate user feedback into future updates and versions.
 - Document updates and maintain comprehensive documentation for the SAT-AI project.
-
-
