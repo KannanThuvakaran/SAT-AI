@@ -8,51 +8,52 @@
 
 flowchart LR
 
-    subgraph Short-Term Goals: 0-12 months
-        A[Dataset Acquisition and Preparation] --> B[Model Selection and Exploration]
+    subgraph Short-Term Goals["Short-Term Goals (0-12 months)"]
+        A[Dataset Preparation] --> B[Model Selection and Exploration]
         B --> C[Model Fine-Tuning]
         C --> D[Interface Development]
        
     end
 
-    subgraph Long-Term Goals: 1-3 years
+    subgraph Long-Term Goals["Long-Term Goals (1-3 years)"]
         F[Further Fine-Tuning and Model Improvement] --> G[Scalability]
         G --> H[Perfomance]
         H --> I[Advanced Interface Features Details]
         
     end
+
     D --> J[Testing and Deployment]
     I --> J
 
-
     %% Dataset Acquisition and Preparation Details
-    subgraph A[Dataset Acquisition and Preparation]
-        A1[Acquire Remote Sensing Datasets] --> A2[Preprocess Datasets]
+    subgraph A[Dataset Preparation]
+        A1[Remote Sensing Datasets] --> A2[Pre-Process Datasets]
     end
 
     %% Model Selection and Exploration Details
-    subgraph B[Model Selection and Exploration]
-        B1[Evaluate Zero Shot Segmentation Models] --> B2[Research AI Architectures]
+    subgraph B[Model Selection / Research]
+        B1[Pre-trained Models] ---
+        B2[Alternative Model Solutions]
     end
 
     %% Model Fine-Tuning Details
-    subgraph C[Model Fine-Tuning]
-        C1[Select Base Model] --> C2[Load and Preprocess Data]
-        C2 --> C3[Train and Optimize Model]
+    subgraph C[Create RS Model]
+        C1[Select Base Model] --> C2[Load RS Dataset]
+        C2 --> C3[Fine-tune Model]
     end
 
     %% Interface Development Details
     subgraph D[Interface Development]
-        D1[Design User-Friendly Interface] --> D2[Develop Frontend and Backend]
-        D2 --> D3[Integrate Model]
-        D3 --> D4[Test Interface]
+        D1[Design Basic Interface] 
+        D1 --> D2[Integrate Fine-tuned Model]
+        D2 --> D3[Test Interface]
     end
 
 
     %% Advanced Fine-Tuning and Model Improvement Details
     subgraph F[Further Fine-Tuning and Model Improvement Details]
         direction TB
-        F1[Gather More Data] --> F2[Implement Advanced Techniques]
+        F1[More Datasets] --> F2[Implement Advanced Techniques]
         F2 --> F3[Combine Models]
         F3 --> F4[Continuous Training]
         F4 --> F5[Monitor Model Performance]
@@ -80,10 +81,8 @@ flowchart LR
 
     %% Testing and Deployment Details
     subgraph J[Testing and Deployment of SAT-AI]
-        J1[Conduct Beta Testing] --> J2[Gather User Feedback]
-        J2 --> J3[Fix Bugs]
-        J3 --> J4[Perform Final Testing]
-        J4 --> J5[Deploy on Cloud Platform]
+        J1[Beta Testing] --> J3[Fix Bugs]
+        J3 --> J5[Launch]
     end
 
 ```
