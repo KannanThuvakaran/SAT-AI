@@ -8,75 +8,37 @@
 
 flowchart LR
 
-    subgraph Short-Term Goals["Short-Term Goals (0-12 months)"]
+    subgraph "SAT-AI (Version 1.0.0)"
+    direction LRR
         A[Dataset Preparation] --> B[Model Selection and Exploration]
         B --> C[Model Fine-Tuning]
         C --> D[Interface Development]
-       
-    end
+        D --> J[Testing and Deployment]
 
-    subgraph Long-Term Goals["Long-Term Goals (1-3 years)"]
-        F[Further Fine-Tuning and Model Improvement] --> G[Scalability]
-        G --> H[Perfomance]
-        H --> I[Advanced Interface Features Details]
-        
     end
-
-    D --> J[Testing and Deployment]
-    I --> J
 
     %% Dataset Acquisition and Preparation Details
-    subgraph A[Dataset Preparation]
+    subgraph A[1. Dataset Preparation]
         A1[Remote Sensing Datasets] --> A2[Pre-Process Datasets]
     end
 
     %% Model Selection and Exploration Details
-    subgraph B[Model Selection / Research]
+    subgraph B[2. Model Selection / Research]
         B1[Pre-trained Models] ---
         B2[Alternative Model Solutions]
     end
 
     %% Model Fine-Tuning Details
-    subgraph C[Create RS Model]
+    subgraph C[3. Fine-tuning RS Model]
         C1[Select Base Model] --> C2[Load RS Dataset]
         C2 --> C3[Fine-tune Model]
     end
 
     %% Interface Development Details
-    subgraph D[Interface Development]
+    subgraph D[4. Interface Development]
         D1[Design Basic Interface] 
         D1 --> D2[Integrate Fine-tuned Model]
         D2 --> D3[Test Interface]
-    end
-
-
-    %% Advanced Fine-Tuning and Model Improvement Details
-    subgraph F[Further Fine-Tuning and Model Improvement Details]
-        direction TB
-        F1[More Datasets] --> F2[Implement Advanced Techniques]
-        F2 --> F3[Combine Models]
-        F3 --> F4[Continuous Training]
-        F4 --> F5[Monitor Model Performance]
-    end
-
-    %% Scalability Details
-    subgraph G[Scalability]
-        direction TB
-        G1[Acquire More GPUs] --> G2[Optimize Model for Speed]
-    end
-
-    %% Performance Details
-    subgraph H[Performance Details]
-        direction TB
-        H1[Implement Efficient Data Pipelines] --> H2[Test on Larger Datasets]
-    end
-
-    %% Advanced Interface Features Details
-    subgraph I[Advanced Interface Features Details]
-        direction TB
-        I1[Implement User Authentication] --> I2[Add Analytical Tools]
-        I2 --> I3[Develop Feedback System]
-        I3 --> I4[Enhance User Experience]
     end
 
     %% Testing and Deployment Details
@@ -84,7 +46,8 @@ flowchart LR
         J1[Beta Testing] --> J3[Fix Bugs]
         J3 --> J5[Launch]
     end
-
+    
+    
 ```
 
 
@@ -196,3 +159,47 @@ flowchart LR
 - Provide user support and address any issues promptly.
 - Incorporate user feedback into future updates and versions.
 - Document updates and maintain comprehensive documentation for the SAT-AI project.
+
+```mermaid
+
+%%{ init : {"theme" : "neutral", "flowchart" : { "curve" : "basis" }}}%%
+
+flowchart LR
+
+   subgraph Long-Term Goals["Long-Term Goals (1-3 years)"]
+        F[Further Fine-Tuning and Model Improvement] --> G[Scalability]
+        G --> H[Perfomance]
+        H --> I[Advanced Interface Features Details]
+        
+    end
+
+     %% Advanced Fine-Tuning and Model Improvement Details
+    subgraph F[Further Fine-Tuning and Model Improvement Details]
+        direction TB
+        F1[More Datasets] --> F2[Implement Advanced Techniques]
+        F2 --> F3[Combine Models]
+        F3 --> F4[Continuous Training]
+        F4 --> F5[Monitor Model Performance]
+    end
+
+    %% Scalability Details
+    subgraph G[Scalability]
+        direction TB
+        G1[Acquire More GPUs] --> G2[Optimize Model for Speed]
+    end
+
+    %% Performance Details
+    subgraph H[Performance Details]
+        direction TB
+        H1[Implement Efficient Data Pipelines] --> H2[Test on Larger Datasets]
+    end
+
+    %% Advanced Interface Features Details
+    subgraph I[Advanced Interface Features Details]
+        direction TB
+        I1[Implement User Authentication] --> I2[Add Analytical Tools]
+        I2 --> I3[Develop Feedback System]
+        I3 --> I4[Enhance User Experience]
+    end
+
+https://huggingface.co/spaces/Major-TOM/MajorTOM-Core-Viewer
