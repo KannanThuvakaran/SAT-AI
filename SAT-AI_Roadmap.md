@@ -1,14 +1,11 @@
-
 # Project Roadmap for SAT-AI Development
 
 ```mermaid
-
-
 %%{ init : {"theme" : "neutral", "flowchart" : { "curve" : "basis" }}}%%
 
 flowchart LR
 
-    subgraph "SAT-AI (Version 1.0.0)"
+    subgraph "SAT-AI (Version 0.1.0)"
     direction LRR
         A[Dataset Preparation] --> B[Model Selection and Exploration]
         B --> C[Model Fine-Tuning]
@@ -47,9 +44,8 @@ flowchart LR
         J3 --> J5[Launch]
     end
     
-    
+ 
 ```
-
 
 ## Table of Contents
 

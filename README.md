@@ -49,3 +49,11 @@ Figure 3: GLIP + SAM example code with text prompt of player, basketball and spe
 ![alt text](images/image4.png)
 
 Figure 4: Similar end-goal though we will improve using our custom dataset of different labels to further finetune the model for better accuracy for remote sensing. Also, can go further by calculating the area of the segments and the number of segments for further analysis.
+
+https://www.eotdl.com/datasets
+
+https://blog.roboflow.com/how-to-use-yolov8-with-sam/
+
+
+OpenEarthMap
+GeoChat

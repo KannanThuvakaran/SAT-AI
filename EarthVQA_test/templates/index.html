@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Uploader and Segmenter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        #comparison {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        #comparison div {
+            margin: 10px;
+            max-width: 45%;
+        }
+        #comparison img {
+            width: 100%;
+            height: auto;
+            max-width: 500px; /* Adjust this value as needed */
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload an Image for Semantic Segmentation</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*">
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if original_image and segmented_image %}
+        <h2>Comparison</h2>
+        <div id="comparison">
+            <div>
+                <h3>Original Image</h3>
+                <img src="{{ url_for('uploaded_file', filename=original_image) }}" alt="Original Image">
+            </div>
+            <div>
+                <h3>Segmented Image</h3>
+                <img src="{{ url_for('output_file', filename=segmented_image) }}" alt="Segmented Image">
+            </div>
+        </div>
+    {% endif %}
+</body>
+</html>
