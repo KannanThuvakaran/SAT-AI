@@ -18,17 +18,23 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+# COLOR_MAP = OrderedDict(
+#     Background=(255, 255, 255),
+#     Building=(255, 0, 0),
+#     Road=(255, 255, 0),
+#     Water=(0, 0, 255),
+#     Barren=(159, 129, 183),
+#     Forest=(0, 255, 0),
+#     Agricultural=(255, 195, 128),
+#     Playground=(165,0,165),
+#     Pond=(0,185,246),
+# )
+
 COLOR_MAP = OrderedDict(
-    Background=(255, 255, 255),
-    Building=(255, 0, 0),
-    Road=(255, 255, 0),
-    Water=(0, 0, 255),
-    Barren=(159, 129, 183),
-    Forest=(0, 255, 0),
-    Agricultural=(255, 195, 128),
-    Playground=(165,0,165),
-    Pond=(0,185,246),
+    Background=(255, 255, 255),  # White for Background
+    Water=(0, 0, 255)            # Blue for Water
 )
+
 
 class LoveDADataset(Dataset):
     def __init__(self, image_dir, mask_dir, transforms=None):

@@ -7,11 +7,12 @@ data = dict(
     train=dict(
         type='LoveDALoaderV2',
         params=dict(
-            image_dir='./LoveDA/Train/images_png',
-            mask_dir='./LoveDA/Train/masks_png_v2',
+            image_dir='./dataset/Train/images_png_small',
+            # mask_dir='./dataset/Train/masks_png_v2',
+            mask_dir='./dataset/Train/water_masks_png_small',
             transforms=Compose([
                 RandomDiscreteScale([0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0]),
-                RandomCrop(512, 512),
+                RandomCrop(256, 256),
                 RandomBrightnessContrast(p=0.5),
                 HorizontalFlip(p=0.5),
                 VerticalFlip(p=0.5),
@@ -23,8 +24,8 @@ data = dict(
             ]),
             CV=dict(k=10, i=-1),
             training=True,
-            batch_size=16,
-            num_workers=4,
+            batch_size=1,
+            num_workers=1,
         ),
     ),
     test=dict(
@@ -64,21 +65,21 @@ learning_rate = dict(
     params=dict(
         base_lr=1e-4,
         power=0.9,
-        max_iters=15000,
+        max_iters=500,
     ))
 train = dict(
     forward_times=1,
-    num_iters=15000,
+    num_iters=500,
     eval_per_epoch=True,
     summary_grads=False,
     summary_weights=False,
-    distributed=True,
-    apex_sync_bn=True,
-    sync_bn=True,
+    distributed=False,  # Single GPU
+    apex_sync_bn=False,  # Disable for single GPU
+    sync_bn=False,  # Disable for single GPU
     eval_after_train=True,
-    log_interval_step=50,
-    save_ckpt_interval_epoch=30,
-    eval_interval_epoch=30,
+    log_interval_step=5,
+    save_ckpt_interval_epoch=5,
+    eval_interval_epoch=1,
 )
 
 test = dict(
