@@ -1,4 +1,19 @@
-EarthVQA_test/dataset
-EarthVQA_test/log
+EarthVQA_test/dataset/Test/images_png
+EarthVQA_test/dataset/Train/images_png
+EarthVQA_test/dataset/Train/masks_png_v2
+EarthVQA_test/dataset/Train/water_masks_png
+EarthVQA_test/dataset/Train/images_png_small
+EarthVQA_test/dataset/Train/water_masks_png_small
+EarthVQA_test/dataset/Val/images_png
+EarthVQA_test/dataset/Val/masks_png_v2
+EarthVQA_test/dataset/Test_QA.json
+EarthVQA_test/dataset/Train_QA.json
+EarthVQA_test/dataset/Val_QA.json
+EarthVQA_test/log/sfpnr50.pth
+EarthVQA_test/log/soba.pth
 GISTDA Data - confidential/
-GeoChat/
+EarthVQA_test/log/sfpnr50
+EarthVQA_test/log/sfpnr50v2
+EarthVQA_test/log/sfpnr50v3
+EarthVQA_test/log/sfpnr50v4
+EarthVQA_test/log/soba/test_2.json
