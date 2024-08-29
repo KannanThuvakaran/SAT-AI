@@ -22,7 +22,7 @@ config = dict(
                 out_feat_output_stride=4,
                 num_groups_gn=None
             ),
-            classes=2,
+            classes=8,
             loss=dict(
                 ignore_index=-1,
             )
